@@ -20,13 +20,13 @@ class Address {
   private $id;
 
   /**
-   * @ORM\Column(type="string", length=100)
-   */
+  * @ORM\Column(type="string", length=100)
+  */
   private $city;
 
   /**
-   * @ORM\Column(type="string", length=6, options={"fixed":true})
-   */
+  * @ORM\Column(type="string", length=6, options={"fixed":true})
+  */
   private $postalCode;
 
   /**

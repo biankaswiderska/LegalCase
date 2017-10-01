@@ -4,13 +4,14 @@ namespace MyBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use EXS\BulkEmailCheckerBundle\Validator\Constraints as ExsAssert;
 
 /**
 * @ORM\Entity
-* @ORM\Table(name="incidentAddresses")
+* @ORM\Table(name="juridicalPersons")
 */
 
-class IncidentAddress {
+class JuridicalPerson extends Person {
 
   /**
   * @ORM\Id
@@ -22,16 +23,10 @@ class IncidentAddress {
   /**
   * @ORM\Column(type="string", length=100)
   */
-  private $city;
-
+  private $organizationType;
   /**
-  * @ORM\Column(type="string", length=150)
+  * @ORM\Column(type="string", length=50)
   */
-  private $street;
-
-  /**
-  * @ORM\Column(type="integer", options={"unsigned":true})
-  */
-  private $houseNumber;
+  private $name;
 
 }

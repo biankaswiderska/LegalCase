@@ -31,8 +31,8 @@ class Incident {
   private $date;
 
   /**
-   * @OneToMany(targetEntity="Keyword", mappedBy="Incident")
-   */
+  * @OneToMany(targetEntity="Keyword", mappedBy="Incident")
+  */
   private $keywords;
 
   /**

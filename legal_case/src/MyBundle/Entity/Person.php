@@ -1,17 +1,18 @@
 <?php
-namespace MyBundle\Entity;
 
+namespace MyBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use EXS\BulkEmailCheckerBundle\Validator\Constraints as ExsAssert;
 
 /**
 * @ORM\Entity
-* @ORM\Table(name="courts")
+* @ORM\Table(name="persons")
+* @ORM\InheritanceType("SINGLE_TABLE")
+* @ORM\DiscriminatorColumn(name="type", type="string")
+* @ORM\DiscriminatorMap( {"naturalPerson" = "NaturalPerson", "juridicalPerson" = "JuridicalPerson"} )
 */
-
-class Court {
+abstract class Person {
 
   /**
   * @ORM\Id
@@ -19,16 +20,6 @@ class Court {
   * @ORM\GeneratedValue
   */
   private $id;
-
-  /**
-  * @ORM\Column(type="string", length=255)
-  */
-  private $name;
-
-  /**
-  * @ORM\Column(type="string", length=100)
-  */
-  private $type;
 
   /**
   * @ORM\Column(type="integer", options={"unsigned":true})
@@ -42,11 +33,14 @@ class Court {
   private $email;
 
   /**
-  * One Product has One Shipment.
-  * @OneToOne(targetEntity="Address")
-  * @JoinColumn(name="address_id", referencedColumnName="id")
+  * @ORM\Column(type="datetime")
   */
-  private $address;
+  private $date;
+
+  /**
+  * @ORM\Column(type="boolean", options={"default":0})
+  */
+  private $completeProfile;
 
   /**
   * @ORM\Column(type="string", length=255)

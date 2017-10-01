@@ -20,18 +20,18 @@ class Keyword {
   private $id;
 
   /**
-   * @ORM\Column(type="string", length=30)
-   */
+  * @ORM\Column(type="string", length=30)
+  */
   private $word;
 
   /**
-   * @ManyToOne(targetEntity="Incident", inversedBy="keywords")
-   * @JoinColumn(name="incident_id", referencedColumnName="id")
-   */
+  * @ManyToOne(targetEntity="Incident", inversedBy="keywords")
+  * @JoinColumn(name="incident_id", referencedColumnName="id")
+  */
   private $incident;
 
   /**
-   * @ORM\Column(type="string", length=255)
-   */
+  * @ORM\Column(type="string", length=255)
+  */
   private $comment;
 }

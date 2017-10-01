@@ -13,25 +13,24 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class LegalCode {
 
   /**
-* @ORM\Id
-* @ORM\Column(type="integer")
-* @ORM\GeneratedValue
-*/
-private $id;
-
+  * @ORM\Id
+  * @ORM\Column(type="integer")
+  * @ORM\GeneratedValue
+  */
+  private $id;  
 
   /**
-   * @ORM\Column(type="string", length=100)
-   */
+  * @ORM\Column(type="string", length=100)
+  */
   private $name;
 
   /**
-   * @ORM\Column(type="string", length=2, unique=true, options={"fixed":true})
-   */
+  * @ORM\Column(type="string", length=2, unique=true, options={"fixed":true})
+  */
   private $abbreviation;
 
   /**
-   * @OneToMany(targetEntity="Clause", mappedBy="legalCode")
-   */
-   private $clauses;
+  * @OneToMany(targetEntity="Clause", mappedBy="legalCode")
+  */
+  private $clauses;
 }

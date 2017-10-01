@@ -20,9 +20,9 @@ class Clause {
   private $id;
 
   /**
-   * @ManyToOne(targetEntity="LegalCode", inversedBy="clauses")
-   * @JoinColumn(name="legalCode_id", referencedColumnName="id")
-   */
+  * @ManyToOne(targetEntity="LegalCode", inversedBy="clauses")
+  * @JoinColumn(name="legalCode_id", referencedColumnName="id")
+  */
   private $legalCode;
 
   /**
@@ -46,7 +46,7 @@ class Clause {
   private $content;
 
   /**
-   * @ORM\Column(type="string", length=255)
-   */
+  * @ORM\Column(type="string", length=255)
+  */
   private $comment;
 }
