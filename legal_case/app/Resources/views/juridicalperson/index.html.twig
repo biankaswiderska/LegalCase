@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Juridicalpeople list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Organizationtype</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for juridicalPerson in juridicalPeople %}
+            <tr>
+                <td><a href="{{ path('juridicalperson_show', { 'id': juridicalPerson.id }) }}">{{ juridicalPerson.id }}</a></td>
+                <td>{{ juridicalPerson.organizationType }}</td>
+                <td>{{ juridicalPerson.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('juridicalperson_show', { 'id': juridicalPerson.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('juridicalperson_edit', { 'id': juridicalPerson.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('juridicalperson_new') }}">Create a new juridicalPerson</a>
+        </li>
+    </ul>
+{% endblock %}

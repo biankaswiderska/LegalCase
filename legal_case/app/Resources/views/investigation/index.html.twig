@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Investigations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adddate</th>
+                <th>Interrogationdate</th>
+                <th>Signature</th>
+                <th>Side</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for investigation in investigations %}
+            <tr>
+                <td><a href="{{ path('investigation_show', { 'id': investigation.id }) }}">{{ investigation.id }}</a></td>
+                <td>{% if investigation.addDate %}{{ investigation.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if investigation.interrogationDate %}{{ investigation.interrogationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ investigation.signature }}</td>
+                <td>{{ investigation.side }}</td>
+                <td>{{ investigation.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('investigation_show', { 'id': investigation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('investigation_edit', { 'id': investigation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('investigation_new') }}">Create a new investigation</a>
+        </li>
+    </ul>
+{% endblock %}

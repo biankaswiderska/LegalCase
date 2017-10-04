@@ -1,0 +1,135 @@
+<?php
+namespace MyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="lawsuits")
+*/
+
+class Lawsuit {
+
+  /**
+  * @ORM\Id
+  * @ORM\Column(type="integer")
+  * @ORM\GeneratedValue
+  */
+  private $id;
+
+  /**
+  * @ORM\Column(type="datetime")
+  */
+  private $addDate;
+
+  /**
+  * @ORM\Column(type="datetime")
+  */
+  private $hearingDate;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="LawsuitStatus", inversedBy="lawsuits")
+  * @ORM\JoinColumn(name="lawsuitStatus_id", referencedColumnName="id")
+  */
+  private $lawsuitStatus;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Person", mappedBy="lawsuitDefendants")
+  */
+  private $lawsuitDefendants;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Person", mappedBy="lawsuitPlaintiffs")
+  */
+  private $lawsuitPlaintiffs;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Person", mappedBy="lawsuitWitnesses")
+  */
+  private $lawsuitWitnesses;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Investigation", inversedBy="lawsuits")
+  * @ORM\JoinTable(name="lawsuits_investigations")
+  */
+  private $investigations;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Clause", inversedBy="lawsuits")
+  * @ORM\JoinTable(name="lawsuits_clauses")
+  */
+  private $clauses;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Lawyer", mappedBy="lawsuitProsecution")
+  */
+  private $prosecutionLawyers;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Lawyer", mappedBy="lawsuitDefense")
+  */
+  private $defenseLawyers;
+
+  /**
+  * @ORM\Column(type="string", length=100)
+  */
+  private $signature;
+
+  /**
+  * @ORM\Column(type="string", length=50)
+  */
+  private $side;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $comment;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="Court", inversedBy="lawsuits")
+  * @ORM\JoinColumn(name="court_id", referencedColumnName="id")
+  */
+  private $court;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="Judge", inversedBy="lawsuitCaseConn")
+  * @ORM\JoinColumn(name="caseConnJudge_id", referencedColumnName="id")
+  */
+  private $caseConnJudge;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="Judge", inversedBy="lawsuitVerdict")
+  * @ORM\JoinColumn(name="verdictJudge_id", referencedColumnName="id")
+  */
+  private $verdictJudge;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $verdict;
+
+  /**
+  * @ORM\Column(type="string", length=50)
+  */
+  private $verdictShort;
+
+  /**
+  * @ORM\OneToMany(targetEntity="CourtOrder", mappedBy="lawsuit")
+  */
+  private $courtOrders;
+
+  public function __construct() {
+    $this->lawsuitDefendants = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->lawsuitPlaintiffs = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->lawsuitWitnesses = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->investigations = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->clauses = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->prosecutionLawyers = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->defenseLawyers = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->courtOrders = new \Doctrine\Common\Collections\ArrayCollection();
+
+  }
+
+}

@@ -1,0 +1,95 @@
+<?php
+namespace MyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use EXS\BulkEmailCheckerBundle\Validator\Constraints as ExsAssert;
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="lawyers")
+*/
+
+class Lawyer {
+
+  /**
+  * @ORM\Id
+  * @ORM\Column(type="integer")
+  * @ORM\GeneratedValue
+  */
+  private $id;
+
+  /**
+  * @ORM\Column(type="string", length=50)
+  */
+  private $name;
+
+  /**
+  * @ORM\Column(type="string", length=50)
+  */
+  private $surname;
+
+  /**
+  * @ORM\Column(type="integer", options={"unsigned":true})
+  */
+  private $phone;
+
+  /**
+  * @ORM\Column(type="text")
+  * @ExsAssert\BulkEmailChecker()
+  */
+  private $email;
+
+  /**
+  * @ORM\Column(type="datetime")
+  */
+  private $addDate;
+
+  /**
+  * @ORM\Column(type="boolean", options={"default":0})
+  */
+  private $completeProfile;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $comment;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="LawFirm", inversedBy="lawyers")
+  * @ORM\JoinColumn(name="lawFirm_id", referencedColumnName="id")
+  */
+  private $lawFirm;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Investigation", inversedBy="prosecutionLawyers")
+  * @ORM\JoinTable(name="prosecutionLawyers_investigationProsecution")
+  */
+  private $investigationProsecution;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Investigation", inversedBy="defenseLawyers")
+  * @ORM\JoinTable(name="defenseLawyers_investigationDefense")
+  */
+  private $investigationDefense;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Lawsuit", inversedBy="prosecutionLawyers")
+  * @ORM\JoinTable(name="prosecutionLawyers_lawsuitProsecution")
+  */
+  private $lawsuitProsecution;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Lawsuit", inversedBy="defenseLawyers")
+  * @ORM\JoinTable(name="defenseLawyers_lawsuitDefense")
+  */
+  private $lawsuitDefense;
+
+  public function __construct() {
+    $this->investigationProsecution = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->investigationDefense = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->lawsuitProsecution = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->lawsuitDefense = new \Doctrine\Common\Collections\ArrayCollection();
+  }
+}

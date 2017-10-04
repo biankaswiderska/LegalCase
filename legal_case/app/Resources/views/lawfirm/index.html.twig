@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lawfirms list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lawFirm in lawFirms %}
+            <tr>
+                <td><a href="{{ path('lawfirm_show', { 'id': lawFirm.id }) }}">{{ lawFirm.id }}</a></td>
+                <td>{{ lawFirm.name }}</td>
+                <td>{{ lawFirm.phone }}</td>
+                <td>{{ lawFirm.email }}</td>
+                <td>{{ lawFirm.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lawfirm_show', { 'id': lawFirm.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lawfirm_edit', { 'id': lawFirm.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lawfirm_new') }}">Create a new lawFirm</a>
+        </li>
+    </ul>
+{% endblock %}

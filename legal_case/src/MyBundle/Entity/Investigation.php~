@@ -1,0 +1,107 @@
+<?php
+namespace MyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="investigations")
+*/
+
+class Investigation {
+
+  /**
+  * @ORM\Id
+  * @ORM\Column(type="integer")
+  * @ORM\GeneratedValue
+  */
+  private $id;
+
+  /**
+  * @ORM\Column(type="datetime")
+  */
+  private $addDate;
+
+  /**
+  * @ORM\Column(type="datetime")
+  */
+  private $interrogationDate;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="InvestigationStatus", inversedBy="investigations")
+  * @ORM\JoinColumn(name="investigationStatus_id", referencedColumnName="id")
+  */
+  private $investigationStatus;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Person", mappedBy="investigationDefendants")
+  */
+  private $investigationDefendants;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Person", mappedBy="investigationPlaintiffs")
+  */
+  private $investigationPlaintiffs;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Person", mappedBy="investigationWitnesses")
+  */
+  private $investigationWitnesses;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Incident", inversedBy="investigations")
+  * @ORM\JoinTable(name="investigations_incidents")
+  */
+  private $incidents;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Clause", inversedBy="investigations")
+  * @ORM\JoinTable(name="investigations_clauses")
+  */
+  private $clauses;
+
+  /**
+   * @ORM\ManyToMany(targetEntity="Lawyer", mappedBy="investigationProsecution")
+   */
+  private $prosecutionLawyers;
+
+  /**
+   * @ORM\ManyToMany(targetEntity="Lawyer", mappedBy="investigationDefense")
+   */
+  private $defenseLawyers;
+
+  /**
+   * @ORM\ManyToMany(targetEntity="Lawsuit", mappedBy="investigations")
+   */
+  private $lawsuits;
+
+  /**
+  * @ORM\Column(type="string", length=100)
+  */
+  private $signature;
+
+  /**
+  * @ORM\Column(type="string", length=50)
+  */
+  private $side;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $comment;
+
+  public function __construct() {
+    $this->investigationDefendants = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->investigationPlaintiffs = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->investigationWitnesses = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->incidents = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->clauses = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->prosecutionLawyers = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->defenseLawyers = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->lawsuits = new \Doctrine\Common\Collections\ArrayCollection();
+
+  }
+
+}

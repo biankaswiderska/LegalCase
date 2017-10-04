@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lawsuits list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adddate</th>
+                <th>Hearingdate</th>
+                <th>Signature</th>
+                <th>Side</th>
+                <th>Comment</th>
+                <th>Verdict</th>
+                <th>Verdictshort</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lawsuit in lawsuits %}
+            <tr>
+                <td><a href="{{ path('lawsuit_show', { 'id': lawsuit.id }) }}">{{ lawsuit.id }}</a></td>
+                <td>{% if lawsuit.addDate %}{{ lawsuit.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if lawsuit.hearingDate %}{{ lawsuit.hearingDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ lawsuit.signature }}</td>
+                <td>{{ lawsuit.side }}</td>
+                <td>{{ lawsuit.comment }}</td>
+                <td>{{ lawsuit.verdict }}</td>
+                <td>{{ lawsuit.verdictShort }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lawsuit_show', { 'id': lawsuit.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lawsuit_edit', { 'id': lawsuit.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lawsuit_new') }}">Create a new lawsuit</a>
+        </li>
+    </ul>
+{% endblock %}

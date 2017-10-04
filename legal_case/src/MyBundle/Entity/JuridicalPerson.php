@@ -29,4 +29,62 @@ class JuridicalPerson extends Person {
   */
   private $name;
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set organizationType
+     *
+     * @param string $organizationType
+     *
+     * @return JuridicalPerson
+     */
+    public function setOrganizationType($organizationType)
+    {
+        $this->organizationType = $organizationType;
+
+        return $this;
+    }
+
+    /**
+     * Get organizationType
+     *
+     * @return string
+     */
+    public function getOrganizationType()
+    {
+        return $this->organizationType;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return JuridicalPerson
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }

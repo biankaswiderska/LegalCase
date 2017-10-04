@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Incidents list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Incidentdate</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for incident in incidents %}
+            <tr>
+                <td><a href="{{ path('incident_show', { 'id': incident.id }) }}">{{ incident.id }}</a></td>
+                <td>{{ incident.name }}</td>
+                <td>{% if incident.incidentDate %}{{ incident.incidentDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ incident.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('incident_show', { 'id': incident.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('incident_edit', { 'id': incident.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('incident_new') }}">Create a new incident</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lawsuitstatuses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Value</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lawsuitStatus in lawsuitStatuses %}
+            <tr>
+                <td><a href="{{ path('lawsuitstatus_show', { 'id': lawsuitStatus.id }) }}">{{ lawsuitStatus.id }}</a></td>
+                <td>{{ lawsuitStatus.value }}</td>
+                <td>{{ lawsuitStatus.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lawsuitstatus_show', { 'id': lawsuitStatus.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lawsuitstatus_edit', { 'id': lawsuitStatus.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lawsuitstatus_new') }}">Create a new lawsuitStatus</a>
+        </li>
+    </ul>
+{% endblock %}

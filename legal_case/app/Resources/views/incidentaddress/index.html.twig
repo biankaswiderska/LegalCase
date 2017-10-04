@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Incidentaddresses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>Housenumber</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for incidentAddress in incidentAddresses %}
+            <tr>
+                <td><a href="{{ path('incidentaddress_show', { 'id': incidentAddress.id }) }}">{{ incidentAddress.id }}</a></td>
+                <td>{{ incidentAddress.city }}</td>
+                <td>{{ incidentAddress.street }}</td>
+                <td>{{ incidentAddress.houseNumber }}</td>
+                <td>{{ incidentAddress.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('incidentaddress_show', { 'id': incidentAddress.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('incidentaddress_edit', { 'id': incidentAddress.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('incidentaddress_new') }}">Create a new incidentAddress</a>
+        </li>
+    </ul>
+{% endblock %}

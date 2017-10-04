@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Judges list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Adddate</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for judge in judges %}
+            <tr>
+                <td><a href="{{ path('judge_show', { 'id': judge.id }) }}">{{ judge.id }}</a></td>
+                <td>{{ judge.name }}</td>
+                <td>{{ judge.surname }}</td>
+                <td>{% if judge.addDate %}{{ judge.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ judge.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('judge_show', { 'id': judge.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('judge_edit', { 'id': judge.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('judge_new') }}">Create a new judge</a>
+        </li>
+    </ul>
+{% endblock %}

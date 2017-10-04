@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Investigation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ investigation.id }}</td>
+            </tr>
+            <tr>
+                <th>Adddate</th>
+                <td>{% if investigation.addDate %}{{ investigation.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Interrogationdate</th>
+                <td>{% if investigation.interrogationDate %}{{ investigation.interrogationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Signature</th>
+                <td>{{ investigation.signature }}</td>
+            </tr>
+            <tr>
+                <th>Side</th>
+                <td>{{ investigation.side }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ investigation.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('investigation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('investigation_edit', { 'id': investigation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

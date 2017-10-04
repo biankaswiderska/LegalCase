@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Courtorders list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Acceptdate</th>
+                <th>Comment</th>
+                <th>Caseconnnumber</th>
+                <th>File</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for courtOrder in courtOrders %}
+            <tr>
+                <td><a href="{{ path('courtorder_show', { 'id': courtOrder.id }) }}">{{ courtOrder.id }}</a></td>
+                <td>{% if courtOrder.acceptDate %}{{ courtOrder.acceptDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ courtOrder.comment }}</td>
+                <td>{{ courtOrder.CaseConnNumber }}</td>
+                <td>{{ courtOrder.file }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('courtorder_show', { 'id': courtOrder.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('courtorder_edit', { 'id': courtOrder.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('courtorder_new') }}">Create a new courtOrder</a>
+        </li>
+    </ul>
+{% endblock %}

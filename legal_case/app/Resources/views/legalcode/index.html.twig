@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Legalcodes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Abbreviation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for legalCode in legalCodes %}
+            <tr>
+                <td><a href="{{ path('legalcode_show', { 'id': legalCode.id }) }}">{{ legalCode.id }}</a></td>
+                <td>{{ legalCode.name }}</td>
+                <td>{{ legalCode.abbreviation }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('legalcode_show', { 'id': legalCode.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('legalcode_edit', { 'id': legalCode.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('legalcode_new') }}">Create a new legalCode</a>
+        </li>
+    </ul>
+{% endblock %}

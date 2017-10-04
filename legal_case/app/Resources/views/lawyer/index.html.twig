@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lawyers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Adddate</th>
+                <th>Completeprofile</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lawyer in lawyers %}
+            <tr>
+                <td><a href="{{ path('lawyer_show', { 'id': lawyer.id }) }}">{{ lawyer.id }}</a></td>
+                <td>{{ lawyer.name }}</td>
+                <td>{{ lawyer.surname }}</td>
+                <td>{{ lawyer.phone }}</td>
+                <td>{{ lawyer.email }}</td>
+                <td>{% if lawyer.addDate %}{{ lawyer.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if lawyer.completeProfile %}Yes{% else %}No{% endif %}</td>
+                <td>{{ lawyer.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lawyer_show', { 'id': lawyer.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lawyer_edit', { 'id': lawyer.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lawyer_new') }}">Create a new lawyer</a>
+        </li>
+    </ul>
+{% endblock %}

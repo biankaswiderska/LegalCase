@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Clauses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Article</th>
+                <th>Section</th>
+                <th>Point</th>
+                <th>Content</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for clause in clauses %}
+            <tr>
+                <td><a href="{{ path('clause_show', { 'id': clause.id }) }}">{{ clause.id }}</a></td>
+                <td>{{ clause.article }}</td>
+                <td>{{ clause.section }}</td>
+                <td>{{ clause.point }}</td>
+                <td>{{ clause.content }}</td>
+                <td>{{ clause.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('clause_show', { 'id': clause.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('clause_edit', { 'id': clause.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('clause_new') }}">Create a new clause</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,106 @@
+<?php
+
+namespace MyBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use EXS\BulkEmailCheckerBundle\Validator\Constraints as ExsAssert;
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="persons")
+* @ORM\InheritanceType("SINGLE_TABLE")
+* @ORM\DiscriminatorColumn(name="type", type="string")
+* @ORM\DiscriminatorMap( {"naturalPerson" = "NaturalPerson", "juridicalPerson" = "JuridicalPerson"} )
+*/
+abstract class Person {
+
+  /**
+  * @ORM\Id
+  * @ORM\Column(type="integer")
+  * @ORM\GeneratedValue
+  */
+  private $id;
+
+  /**
+  * @ORM\Column(type="integer", options={"unsigned":true})
+  */
+  private $phone;
+
+  /**
+  * @ORM\Column(type="text")
+  * @ExsAssert\BulkEmailChecker()
+  */
+  private $email;
+
+  /**
+  * @ORM\Column(type="datetime")
+  */
+  private $addDate;
+
+  /**
+  * @ORM\Column(type="boolean", options={"default":0})
+  */
+  private $completeProfile;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $comment;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Investigation", inversedBy="investigationDefendants")
+  * @ORM\JoinTable(name="investigation_defendants")
+  */
+  private $investigationDefendants;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Investigation", inversedBy="investigationPlaintiffs")
+  * @ORM\JoinTable(name="investigation_plaintiffs")
+  */
+  private $investigationPlaintiffs;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Investigation", inversedBy="investigationWitnesses")
+  * @ORM\JoinTable(name="investigation_witnesses")
+  */
+  private $investigationWitnesses;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Lawsuit", inversedBy="lawsuitDefendants")
+  * @ORM\JoinTable(name="lawsuit_defendants")
+  */
+  private $lawsuitDefendants;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Lawsuit", inversedBy="lawsuitPlaintiffs")
+  * @ORM\JoinTable(name="lawsuit_plaintiffs")
+  */
+  private $lawsuitPlaintiffs;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Lawsuit", inversedBy="lawsuitWitnesses")
+  * @ORM\JoinTable(name="lawsuit_witnesses")
+  */
+  private $lawsuitWitnesses;
+
+  /**
+   * @ORM\ManyToMany(targetEntity="CourtOrder", inversedBy="persons")
+   * @ORM\JoinTable(name="persons_courtOrders")
+   */
+  private $courtOrders;
+
+
+  public function __construct() {
+    $this->investigationDefendants = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->investigationPlaintiffs = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->investigationWitnesses = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->lawsuitDefendants = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->lawsuitPlaintiffs = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->lawsuitWitnesses = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->courtOrders = new \Doctrine\Common\Collections\ArrayCollection();
+
+  }
+
+
+}

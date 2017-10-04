@@ -1,0 +1,59 @@
+<?php
+namespace MyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="courtOrders")
+*/
+
+class CourtOrder {
+
+  /**
+  * @ORM\Id
+  * @ORM\Column(type="integer")
+  * @ORM\GeneratedValue
+  */
+  private $id;
+
+  /**
+  * @ORM\Column(type="datetime")
+  */
+  private $acceptDate;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $comment;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Person", mappedBy="courtOrders")
+  */
+  private $persons;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $CaseConnNumber;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="Lawsuit", inversedBy="courtOrders")
+  * @ORM\JoinColumn(name="lawsuit_id", referencedColumnName="id")
+  */
+  private $lawsuit;
+
+  /**
+   * @ORM\Column(type="string")
+   *
+   * @Assert\File(mimeTypes={ "application/pdf" })
+   */
+  private $file;
+
+  public function __construct() {
+    $this->persons = new \Doctrine\Common\Collections\ArrayCollection();
+  }
+}

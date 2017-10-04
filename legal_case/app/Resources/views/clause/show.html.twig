@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Clause</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ clause.id }}</td>
+            </tr>
+            <tr>
+                <th>Article</th>
+                <td>{{ clause.article }}</td>
+            </tr>
+            <tr>
+                <th>Section</th>
+                <td>{{ clause.section }}</td>
+            </tr>
+            <tr>
+                <th>Point</th>
+                <td>{{ clause.point }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ clause.content }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ clause.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('clause_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('clause_edit', { 'id': clause.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
