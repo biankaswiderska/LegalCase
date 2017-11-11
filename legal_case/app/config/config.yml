@@ -69,3 +69,5 @@ swiftmailer:
 # EmailChecker Configuration
 exs_bulk_email_checker:
     api_key: 'YourApiKey'
+
+    

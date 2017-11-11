@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Policeofficers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Adddate</th>
+                <th>Comment</th>
+                <th>Ok</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for policeofficer in policeofficers %}
+            <tr>
+                <td><a href="{{ path('policeofficer_show', { 'id': policeofficer.id }) }}">{{ policeofficer.id }}</a></td>
+                <td>{{ policeofficer.name }}</td>
+                <td>{{ policeofficer.surname }}</td>
+                <td>{% if policeofficer.addDate %}{{ policeofficer.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ policeofficer.comment }}</td>
+                <td>{{ policeofficer.ok }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('policeofficer_show', { 'id': policeofficer.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('policeofficer_edit', { 'id': policeofficer.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('policeofficer_new') }}">Create a new policeofficer</a>
+        </li>
+    </ul>
+{% endblock %}

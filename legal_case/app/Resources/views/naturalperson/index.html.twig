@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Naturalpeople list</h1>
+    <h1>Osoby fizyczne</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Actions</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('naturalperson_show', { 'id': naturalPerson.id }) }}">show</a>
+                            <a href="{{ path('naturalperson_show', { 'id': naturalPerson.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('naturalperson_edit', { 'id': naturalPerson.id }) }}">edit</a>
+                            <a href="{{ path('naturalperson_edit', { 'id': naturalPerson.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('naturalperson_new') }}">Create a new naturalPerson</a>
+            <a href="{{ path('naturalperson_new') }}">Dodaj nową osobę fizyczną</a>
         </li>
     </ul>
 {% endblock %}

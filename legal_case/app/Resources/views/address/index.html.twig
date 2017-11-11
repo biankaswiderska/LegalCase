@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Addresses list</h1>
+    <h1>Adresy</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>City</th>
-                <th>Postalcode</th>
-                <th>Street</th>
-                <th>Housenumber</th>
-                <th>Apartmentnumber</th>
-                <th>Actions</th>
+                <th>Miasto</th>
+                <th>Kod pocztowy</th>
+                <th>Ulica</th>
+                <th>Numer domu</th>
+                <th>Numer mieszkania</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -27,10 +27,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('address_show', { 'id': address.id }) }}">show</a>
+                            <a href="{{ path('address_show', { 'id': address.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('address_edit', { 'id': address.id }) }}">edit</a>
+                            <a href="{{ path('address_edit', { 'id': address.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('address_new') }}">Create a new address</a>
+            <a href="{{ path('address_new') }}">Dodaj nowy adres</a>
         </li>
     </ul>
 {% endblock %}

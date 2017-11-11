@@ -1,0 +1,66 @@
+<?php
+namespace MyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="policeofficers")
+*/
+
+class Policeofficer {
+
+  /**
+  * @ORM\Id
+  * @ORM\Column(type="integer")
+  * @ORM\GeneratedValue
+  */
+  private $id;
+
+  /**
+  * @ORM\Column(type="string", length=50)
+  */
+  private $name;
+
+  /**
+  * @ORM\Column(type="string", length=50)
+  */
+  private $surname;
+
+  /**
+  * @ORM\Column(type="datetime")
+  */
+  private $addDate;
+
+  /**
+  * @ORM\Column(type="string", length=255)
+  */
+  private $comment;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Policestation", inversedBy="policeofficers")
+  * @ORM\JoinTable(name="policeofficers_policestations")
+  */
+  private $policestations;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Investigation", inversedBy="policeofficers")
+  * @ORM\JoinTable(name="policeofficers_investigations")
+  */
+  private $investigations;
+
+
+  /**
+  * @ORM\Column(type="string", length=50)
+  */
+  private $ok;
+
+
+  public function __construct() {
+    $this->policestations = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->investigations = new \Doctrine\Common\Collections\ArrayCollection();
+
+  }
+}

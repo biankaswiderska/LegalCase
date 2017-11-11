@@ -1,32 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Address</h1>
+    <h1>Adres</h1>
 
-    <table>
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ address.id }}</td>
             </tr>
             <tr>
-                <th>City</th>
+                <th>Miasto</th>
                 <td>{{ address.city }}</td>
             </tr>
             <tr>
-                <th>Postalcode</th>
+                <th>Kod pocztowy</th>
                 <td>{{ address.postalCode }}</td>
             </tr>
             <tr>
-                <th>Street</th>
+                <th>Ulica</th>
                 <td>{{ address.street }}</td>
             </tr>
             <tr>
-                <th>Housenumber</th>
+                <th>Numer domu</th>
                 <td>{{ address.houseNumber }}</td>
             </tr>
             <tr>
-                <th>Apartmentnumber</th>
+                <th>Numer mieszkania</th>
                 <td>{{ address.apartmentNumber }}</td>
             </tr>
         </tbody>
@@ -34,14 +34,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('address_index') }}">Back to the list</a>
+            <a href="{{ path('address_index') }}">Powrót do listy</a>
         </li>
         <li>
-            <a href="{{ path('address_edit', { 'id': address.id }) }}">Edit</a>
+            <a href="{{ path('address_edit', { 'id': address.id }) }}">Edytuj</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usuń">
             {{ form_end(delete_form) }}
         </li>
     </ul>

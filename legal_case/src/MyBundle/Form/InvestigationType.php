@@ -13,7 +13,7 @@ class InvestigationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('addDate')->add('interrogationDate')->add('signature')->add('side')->add('comment')->add('investigationStatus')->add('investigationDefendants')->add('investigationPlaintiffs')->add('investigationWitnesses')->add('incidents')->add('clauses')->add('prosecutionLawyers')->add('defenseLawyers')->add('lawsuits');
+        $builder->add('addDate')->add('interrogationDate')->add('signature')->add('side')->add('comment')->add('investigationStatus')->add('investigationDefendants')->add('investigationPlaintiffs')->add('investigationWitnesses')->add('incidents')->add('clauses')->add('policeofficers')->add('prosecutionLawyers')->add('defenseLawyers')->add('lawsuits');
     }
     
     /**

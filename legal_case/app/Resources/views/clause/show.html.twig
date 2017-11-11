@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Clause</h1>
+    <h1>Paragraf</h1>
 
     <table>
         <tbody>
@@ -10,23 +10,23 @@
                 <td>{{ clause.id }}</td>
             </tr>
             <tr>
-                <th>Article</th>
+                <th>Artykuł</th>
                 <td>{{ clause.article }}</td>
             </tr>
             <tr>
-                <th>Section</th>
+                <th>Paragraf</th>
                 <td>{{ clause.section }}</td>
             </tr>
             <tr>
-                <th>Point</th>
+                <th>Ustęp</th>
                 <td>{{ clause.point }}</td>
             </tr>
             <tr>
-                <th>Content</th>
+                <th>Treść</th>
                 <td>{{ clause.content }}</td>
             </tr>
             <tr>
-                <th>Comment</th>
+                <th>Komentarz</th>
                 <td>{{ clause.comment }}</td>
             </tr>
         </tbody>
@@ -34,14 +34,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('clause_index') }}">Back to the list</a>
+            <a href="{{ path('clause_index') }}">Powrót do listy</a>
         </li>
         <li>
-            <a href="{{ path('clause_edit', { 'id': clause.id }) }}">Edit</a>
+            <a href="{{ path('clause_edit', { 'id': clause.id }) }}">Edytuj</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usuń">
             {{ form_end(delete_form) }}
         </li>
     </ul>

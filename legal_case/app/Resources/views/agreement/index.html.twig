@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Agreements list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Value</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agreement in agreements %}
+            <tr>
+                <td><a href="{{ path('agreement_show', { 'id': agreement.id }) }}">{{ agreement.id }}</a></td>
+                <td>{{ agreement.value }}</td>
+                <td>{{ agreement.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('agreement_show', { 'id': agreement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('agreement_edit', { 'id': agreement.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('agreement_new') }}">Create a new agreement</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Judge</h1>
+    <h1>Sędzia</h1>
 
     <table>
         <tbody>
@@ -10,19 +10,19 @@
                 <td>{{ judge.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Imię</th>
                 <td>{{ judge.name }}</td>
             </tr>
             <tr>
-                <th>Surname</th>
+                <th>Nazwisko</th>
                 <td>{{ judge.surname }}</td>
             </tr>
             <tr>
-                <th>Adddate</th>
+                <th>Data dodania</th>
                 <td>{% if judge.addDate %}{{ judge.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Comment</th>
+                <th>Komentarz</th>
                 <td>{{ judge.comment }}</td>
             </tr>
         </tbody>
@@ -30,14 +30,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('judge_index') }}">Back to the list</a>
+            <a href="{{ path('judge_index') }}">Powrót do listy</a>
         </li>
         <li>
-            <a href="{{ path('judge_edit', { 'id': judge.id }) }}">Edit</a>
+            <a href="{{ path('judge_edit', { 'id': judge.id }) }}">Edytuj</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usuń">
             {{ form_end(delete_form) }}
         </li>
     </ul>

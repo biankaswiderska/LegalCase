@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Policestations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for policestation in policestations %}
+            <tr>
+                <td><a href="{{ path('policestation_show', { 'id': policestation.id }) }}">{{ policestation.id }}</a></td>
+                <td>{{ policestation.name }}</td>
+                <td>{{ policestation.phone }}</td>
+                <td>{{ policestation.comment }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('policestation_show', { 'id': policestation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('policestation_edit', { 'id': policestation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('policestation_new') }}">Create a new policestation</a>
+        </li>
+    </ul>
+{% endblock %}

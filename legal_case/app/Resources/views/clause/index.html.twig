@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Clauses list</h1>
+    <h1>Paragrafy</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Article</th>
-                <th>Section</th>
-                <th>Point</th>
-                <th>Content</th>
-                <th>Comment</th>
-                <th>Actions</th>
+                <th>Artykuł</th>
+                <th>Paragraf</th>
+                <th>Ustęp</th>
+                <th>Treść</th>
+                <th>Komentarz</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -27,10 +27,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('clause_show', { 'id': clause.id }) }}">show</a>
+                            <a href="{{ path('clause_show', { 'id': clause.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('clause_edit', { 'id': clause.id }) }}">edit</a>
+                            <a href="{{ path('clause_edit', { 'id': clause.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('clause_new') }}">Create a new clause</a>
+            <a href="{{ path('clause_new') }}">Dodaj nowy paragraf</a>
         </li>
     </ul>
 {% endblock %}

@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Juridicalpeople list</h1>
+    <h1>Organizacje</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Organizationtype</th>
-                <th>Name</th>
-                <th>Actions</th>
+                <th>Typ organizacji</th>
+                <th>Nazwa</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('juridicalperson_show', { 'id': juridicalPerson.id }) }}">show</a>
+                            <a href="{{ path('juridicalperson_show', { 'id': juridicalPerson.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('juridicalperson_edit', { 'id': juridicalPerson.id }) }}">edit</a>
+                            <a href="{{ path('juridicalperson_edit', { 'id': juridicalPerson.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('juridicalperson_new') }}">Create a new juridicalPerson</a>
+            <a href="{{ path('juridicalperson_new') }}">Dodaj nową organizację</a>
         </li>
     </ul>
 {% endblock %}

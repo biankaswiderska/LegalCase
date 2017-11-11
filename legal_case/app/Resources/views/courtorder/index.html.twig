@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Courtorders list</h1>
+    <h1>Wyroki nakazowe</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Acceptdate</th>
-                <th>Comment</th>
-                <th>Caseconnnumber</th>
-                <th>File</th>
-                <th>Actions</th>
+                <th>Data otrzymania</th>
+                <th>Komentarz</th>
+                <th>Numer połączenia spraw</th>
+                <th>Plik</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +25,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('courtorder_show', { 'id': courtOrder.id }) }}">show</a>
+                            <a href="{{ path('courtorder_show', { 'id': courtOrder.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('courtorder_edit', { 'id': courtOrder.id }) }}">edit</a>
+                            <a href="{{ path('courtorder_edit', { 'id': courtOrder.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +39,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('courtorder_new') }}">Create a new courtOrder</a>
+            <a href="{{ path('courtorder_new') }}">Dodaj nowy nakaz sądowy</a>
         </li>
     </ul>
 {% endblock %}

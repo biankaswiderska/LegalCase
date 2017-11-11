@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Courtorder</h1>
+    <h1>Wyrok nakazowy</h1>
 
     <table>
         <tbody>
@@ -10,19 +10,19 @@
                 <td>{{ courtOrder.id }}</td>
             </tr>
             <tr>
-                <th>Acceptdate</th>
+                <th>Data otrzymania</th>
                 <td>{% if courtOrder.acceptDate %}{{ courtOrder.acceptDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Comment</th>
+                <th>Komentarz</th>
                 <td>{{ courtOrder.comment }}</td>
             </tr>
             <tr>
-                <th>Caseconnnumber</th>
+                <th>Numer połączenia spraw</th>
                 <td>{{ courtOrder.CaseConnNumber }}</td>
             </tr>
             <tr>
-                <th>File</th>
+                <th>Plik</th>
                 <td>{{ courtOrder.file }}</td>
             </tr>
         </tbody>
@@ -30,14 +30,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('courtorder_index') }}">Back to the list</a>
+            <a href="{{ path('courtorder_index') }}">Powrót do listy</a>
         </li>
         <li>
-            <a href="{{ path('courtorder_edit', { 'id': courtOrder.id }) }}">Edit</a>
+            <a href="{{ path('courtorder_edit', { 'id': courtOrder.id }) }}">Edytuj</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usuń">
             {{ form_end(delete_form) }}
         </li>
     </ul>

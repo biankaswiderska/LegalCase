@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Judges list</h1>
+    <h1>Sędziowie</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Adddate</th>
-                <th>Comment</th>
-                <th>Actions</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Data dodania</th>
+                <th>Komentarz</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +25,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('judge_show', { 'id': judge.id }) }}">show</a>
+                            <a href="{{ path('judge_show', { 'id': judge.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('judge_edit', { 'id': judge.id }) }}">edit</a>
+                            <a href="{{ path('judge_edit', { 'id': judge.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +39,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('judge_new') }}">Create a new judge</a>
+            <a href="{{ path('judge_new') }}">Dodaj nowego sędziego</a>
         </li>
     </ul>
 {% endblock %}

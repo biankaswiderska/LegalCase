@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Legalcodes list</h1>
+    <h1>Kodeksy</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Abbreviation</th>
-                <th>Actions</th>
+                <th>Nazwa</th>
+                <th>Skrót</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('legalcode_show', { 'id': legalCode.id }) }}">show</a>
+                            <a href="{{ path('legalcode_show', { 'id': legalCode.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('legalcode_edit', { 'id': legalCode.id }) }}">edit</a>
+                            <a href="{{ path('legalcode_edit', { 'id': legalCode.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('legalcode_new') }}">Create a new legalCode</a>
+            <a href="{{ path('legalcode_new') }}">Dodaj nowy kodeks</a>
         </li>
     </ul>
 {% endblock %}

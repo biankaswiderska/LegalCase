@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Courts list</h1>
+    <h1>Sądy</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Phone</th>
-                <th>Comment</th>
-                <th>Actions</th>
+                <th>Nazwa</th>
+                <th>Typ</th>
+                <th>Numer telefonu</th>
+                <th>Komentarz</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +25,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('court_show', { 'id': court.id }) }}">show</a>
+                            <a href="{{ path('court_show', { 'id': court.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('court_edit', { 'id': court.id }) }}">edit</a>
+                            <a href="{{ path('court_edit', { 'id': court.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +39,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('court_new') }}">Create a new court</a>
+            <a href="{{ path('court_new') }}">Dodaj nowy sąd</a>
         </li>
     </ul>
 {% endblock %}

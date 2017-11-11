@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lawyers list</h1>
+    <h1>Prawnicy</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Phone</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Numer telefonu</th>
                 <th>Email</th>
-                <th>Adddate</th>
-                <th>Completeprofile</th>
-                <th>Comment</th>
-                <th>Actions</th>
+                <th>Data dodania</th>
+                <th>Profil kompletny</th>
+                <th>Komentarz</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -31,10 +31,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('lawyer_show', { 'id': lawyer.id }) }}">show</a>
+                            <a href="{{ path('lawyer_show', { 'id': lawyer.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('lawyer_edit', { 'id': lawyer.id }) }}">edit</a>
+                            <a href="{{ path('lawyer_edit', { 'id': lawyer.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -45,7 +45,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('lawyer_new') }}">Create a new lawyer</a>
+            <a href="{{ path('lawyer_new') }}">Dodaj nowego prawnika</a>
         </li>
     </ul>
 {% endblock %}

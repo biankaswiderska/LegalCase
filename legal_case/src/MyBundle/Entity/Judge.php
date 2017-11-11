@@ -38,7 +38,7 @@ class Judge {
   * @ORM\Column(type="string", length=255)
   */
   private $comment;
-
+  
   /**
   * @ORM\ManyToMany(targetEntity="Court", inversedBy="judges")
   * @ORM\JoinTable(name="judges_courts")

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Incidentaddress</h1>
+    <h1>Adres wydarzenia</h1>
 
     <table>
         <tbody>
@@ -10,19 +10,19 @@
                 <td>{{ incidentAddress.id }}</td>
             </tr>
             <tr>
-                <th>City</th>
+                <th>Miasto</th>
                 <td>{{ incidentAddress.city }}</td>
             </tr>
             <tr>
-                <th>Street</th>
+                <th>Ulica</th>
                 <td>{{ incidentAddress.street }}</td>
             </tr>
             <tr>
-                <th>Housenumber</th>
+                <th>Numer domu</th>
                 <td>{{ incidentAddress.houseNumber }}</td>
             </tr>
             <tr>
-                <th>Comment</th>
+                <th>Komentarz</th>
                 <td>{{ incidentAddress.comment }}</td>
             </tr>
         </tbody>
@@ -30,14 +30,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('incidentaddress_index') }}">Back to the list</a>
+            <a href="{{ path('incidentaddress_index') }}">Powrót do listy</a>
         </li>
         <li>
-            <a href="{{ path('incidentaddress_edit', { 'id': incidentAddress.id }) }}">Edit</a>
+            <a href="{{ path('incidentaddress_edit', { 'id': incidentAddress.id }) }}">Edytuj</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usuń">
             {{ form_end(delete_form) }}
         </li>
     </ul>

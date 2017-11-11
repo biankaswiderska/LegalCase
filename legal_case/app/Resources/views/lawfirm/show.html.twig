@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lawfirm</h1>
+    <h1>Kancelaria prawna</h1>
 
     <table>
         <tbody>
@@ -10,11 +10,11 @@
                 <td>{{ lawFirm.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nazwa</th>
                 <td>{{ lawFirm.name }}</td>
             </tr>
             <tr>
-                <th>Phone</th>
+                <th>Numer telefonu</th>
                 <td>{{ lawFirm.phone }}</td>
             </tr>
             <tr>
@@ -22,7 +22,7 @@
                 <td>{{ lawFirm.email }}</td>
             </tr>
             <tr>
-                <th>Comment</th>
+                <th>Komentarz</th>
                 <td>{{ lawFirm.comment }}</td>
             </tr>
         </tbody>
@@ -30,14 +30,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('lawfirm_index') }}">Back to the list</a>
+            <a href="{{ path('lawfirm_index') }}">Powrót do listy</a>
         </li>
         <li>
-            <a href="{{ path('lawfirm_edit', { 'id': lawFirm.id }) }}">Edit</a>
+            <a href="{{ path('lawfirm_edit', { 'id': lawFirm.id }) }}">Edytuj</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usuń">
             {{ form_end(delete_form) }}
         </li>
     </ul>

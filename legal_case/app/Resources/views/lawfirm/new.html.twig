@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lawfirm creation</h1>
+    <h1>Dodaj kancelarię prawną</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Dodaj" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('lawfirm_index') }}">Back to the list</a>
+            <a href="{{ path('lawfirm_index') }}">Powrót do listy</a>
         </li>
     </ul>
 {% endblock %}

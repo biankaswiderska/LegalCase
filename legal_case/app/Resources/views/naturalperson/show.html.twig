@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Naturalperson</h1>
+    <h1>Osoba fizyczna</h1>
 
     <table>
         <tbody>
@@ -10,11 +10,11 @@
                 <td>{{ naturalPerson.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Imię</th>
                 <td>{{ naturalPerson.name }}</td>
             </tr>
             <tr>
-                <th>Surname</th>
+                <th>Nazwisko</th>
                 <td>{{ naturalPerson.surname }}</td>
             </tr>
         </tbody>
@@ -22,14 +22,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('naturalperson_index') }}">Back to the list</a>
+            <a href="{{ path('naturalperson_index') }}">Powrót do listy</a>
         </li>
         <li>
-            <a href="{{ path('naturalperson_edit', { 'id': naturalPerson.id }) }}">Edit</a>
+            <a href="{{ path('naturalperson_edit', { 'id': naturalPerson.id }) }}">Edytuj</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usuń">
             {{ form_end(delete_form) }}
         </li>
     </ul>

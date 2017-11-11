@@ -31,7 +31,11 @@ class NaturalPerson extends Person {
   */
   private $surname;
 
-
+  /**
+  * @ORM\ManyToOne(targetEntity="Agreement", inversedBy="naturalpersons")
+  * @ORM\JoinColumn(name="agreement_id", referencedColumnName="id")
+  */
+  private $agreement;
     /**
      * Get id
      *

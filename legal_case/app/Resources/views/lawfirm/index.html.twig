@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lawfirms list</h1>
+    <h1>Kancelarie prawne</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Phone</th>
+                <th>Nazwa</th>
+                <th>Numer telefonu</th>
                 <th>Email</th>
-                <th>Comment</th>
-                <th>Actions</th>
+                <th>Komentarz</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +25,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('lawfirm_show', { 'id': lawFirm.id }) }}">show</a>
+                            <a href="{{ path('lawfirm_show', { 'id': lawFirm.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('lawfirm_edit', { 'id': lawFirm.id }) }}">edit</a>
+                            <a href="{{ path('lawfirm_edit', { 'id': lawFirm.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +39,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('lawfirm_new') }}">Create a new lawFirm</a>
+            <a href="{{ path('lawfirm_new') }}">Dodaj nową kancelarię prawną</a>
         </li>
     </ul>
 {% endblock %}

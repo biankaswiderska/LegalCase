@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lawsuit</h1>
+    <h1>Sprawa sądowa</h1>
 
     <table>
         <tbody>
@@ -10,31 +10,31 @@
                 <td>{{ lawsuit.id }}</td>
             </tr>
             <tr>
-                <th>Adddate</th>
+                <th>Data dodania</th>
                 <td>{% if lawsuit.addDate %}{{ lawsuit.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Hearingdate</th>
+                <th>Data przesłuchania</th>
                 <td>{% if lawsuit.hearingDate %}{{ lawsuit.hearingDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Signature</th>
+                <th>Sygnatura sądowa</th>
                 <td>{{ lawsuit.signature }}</td>
             </tr>
             <tr>
-                <th>Side</th>
+                <th>Strona sporu</th>
                 <td>{{ lawsuit.side }}</td>
             </tr>
             <tr>
-                <th>Comment</th>
+                <th>Komentarz</th>
                 <td>{{ lawsuit.comment }}</td>
             </tr>
             <tr>
-                <th>Verdict</th>
+                <th>Werdykt</th>
                 <td>{{ lawsuit.verdict }}</td>
             </tr>
             <tr>
-                <th>Verdictshort</th>
+                <th>Werdykt w skrócie</th>
                 <td>{{ lawsuit.verdictShort }}</td>
             </tr>
         </tbody>
@@ -42,14 +42,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('lawsuit_index') }}">Back to the list</a>
+            <a href="{{ path('lawsuit_index') }}">Powrót do listy</a>
         </li>
         <li>
-            <a href="{{ path('lawsuit_edit', { 'id': lawsuit.id }) }}">Edit</a>
+            <a href="{{ path('lawsuit_edit', { 'id': lawsuit.id }) }}">Edytuj</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usuń">
             {{ form_end(delete_form) }}
         </li>
     </ul>

@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Incidentaddresses list</h1>
+    <h1>Adresy wydarzeń</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>City</th>
-                <th>Street</th>
-                <th>Housenumber</th>
-                <th>Comment</th>
-                <th>Actions</th>
+                <th>Miasto</th>
+                <th>Ulica</th>
+                <th>Numer domu</th>
+                <th>Komentarz</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +25,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('incidentaddress_show', { 'id': incidentAddress.id }) }}">show</a>
+                            <a href="{{ path('incidentaddress_show', { 'id': incidentAddress.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('incidentaddress_edit', { 'id': incidentAddress.id }) }}">edit</a>
+                            <a href="{{ path('incidentaddress_edit', { 'id': incidentAddress.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +39,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('incidentaddress_new') }}">Create a new incidentAddress</a>
+            <a href="{{ path('incidentaddress_new') }}">Dodaj nowy adres wydarzenia</a>
         </li>
     </ul>
 {% endblock %}

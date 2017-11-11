@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Investigationstatuses list</h1>
+    <h1>Statusy spraw dochodzeniowych</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Value</th>
-                <th>Comment</th>
-                <th>Actions</th>
+                <th>Status</th>
+                <th>Komentarz</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('investigationstatus_show', { 'id': investigationStatus.id }) }}">show</a>
+                            <a href="{{ path('investigationstatus_show', { 'id': investigationStatus.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('investigationstatus_edit', { 'id': investigationStatus.id }) }}">edit</a>
+                            <a href="{{ path('investigationstatus_edit', { 'id': investigationStatus.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('investigationstatus_new') }}">Create a new investigationStatus</a>
+            <a href="{{ path('investigationstatus_new') }}">Dodaj nowy status sprawy dochodzeniowej</a>
         </li>
     </ul>
 {% endblock %}

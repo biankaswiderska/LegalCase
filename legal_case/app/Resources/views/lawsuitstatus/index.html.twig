@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lawsuitstatuses list</h1>
+    <h1>Statusy spraw sądowych</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Value</th>
-                <th>Comment</th>
-                <th>Actions</th>
+                <th>Status</th>
+                <th>Komentarz</th>
+                <th>Akcja</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('lawsuitstatus_show', { 'id': lawsuitStatus.id }) }}">show</a>
+                            <a href="{{ path('lawsuitstatus_show', { 'id': lawsuitStatus.id }) }}">pokaż</a>
                         </li>
                         <li>
-                            <a href="{{ path('lawsuitstatus_edit', { 'id': lawsuitStatus.id }) }}">edit</a>
+                            <a href="{{ path('lawsuitstatus_edit', { 'id': lawsuitStatus.id }) }}">edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('lawsuitstatus_new') }}">Create a new lawsuitStatus</a>
+            <a href="{{ path('lawsuitstatus_new') }}">Dodaj nowy status sprawy sądowej</a>
         </li>
     </ul>
 {% endblock %}
