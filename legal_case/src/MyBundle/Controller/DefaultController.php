@@ -12,6 +12,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('MyBundle:Default:index.html.twig');
+        //return $this->render('MyBundle:Default:index.html.twig');
+      return $this->redirectToRoute('fos_user_security_login');  
     }
 }
